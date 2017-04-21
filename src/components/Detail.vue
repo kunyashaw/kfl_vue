@@ -47,8 +47,8 @@ export default {
         }
     },
     methods: {
-        jump:function(){
-             this.$parent.jump('/detail');
+        jump:function(path){
+             this.$parent.jump(path);
         }
     }
     ,

@@ -3,6 +3,7 @@
     <router-link to="/">Go to Start</router-link>
     <router-link to="/main">Go to Main</router-link>
     <router-link to="/detail">Detail</router-link>
+    <router-link to="/myOrder">myOrder</router-link>
     <button v-on:click="jump('/main')">btn</button> 
     <router-view></router-view>
   </div>
@@ -17,13 +18,8 @@
 　　　　　　子访问父:	子组件: this.$parent.子数据/方法名()
  */
 import Router from 'vue-router'
-import mainComponent from './components/Main'
-import detailComponent from './components/Detail'
 export default {
   name: 'app',
-  components: {
-    mainComponent,detailComponent
-  },
   methods:{
     jump:function(path){
       this.$router.push(path)
