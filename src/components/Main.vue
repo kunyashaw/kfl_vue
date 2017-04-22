@@ -69,7 +69,7 @@ export default {
 
             this.$http
                 .jsonp(
-                'http://localhost/data/dish_getbypage.php?start=' + this.dishList.length, { jsonp: 'callback' }
+                'http://'+serverUrl+'/data/dish_getbypage.php?start=' + this.dishList.length, { jsonp: 'callback' }
                 )
                 .then(function (response) {
                     this.dishList = this.dishList.concat(response.data);
@@ -86,7 +86,7 @@ export default {
         kw: function (newValue, oldValue) {
             this.$http
                 .jsonp(
-                'http://localhost/data/dish_getbykw.php?kw=' + this.kw, { jsonp: 'callback' }
+                'http://'+serverUrl+'/data/dish_getbykw.php?kw=' + this.kw, { jsonp: 'callback' }
                 )
                 .then(function (response) {
                     this.dishList = response.data;
@@ -96,10 +96,10 @@ export default {
         }
     },
     created() {
-        //console.log(this.$http);
+        console.log(serverUrl);
         this.$http
             .jsonp(
-            'http://localhost/data/dish_getbypage.php', { jsonp: 'callback' }
+            'http://'+serverUrl+'/data/dish_getbypage.php', { jsonp: 'callback' }
             )
             .then(function (response) {
                 this.dishList = response.data;

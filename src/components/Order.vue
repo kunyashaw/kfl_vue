@@ -84,7 +84,7 @@ export default {
         },
         submitOrder: function () {
             console.log(this.order);
-            this.$http.jsonp('http://localhost/data/order_add.php', { params: this.order }).then(function (response) {
+            this.$http.jsonp('http://'+serverUrl+'/data/order_add.php', { params: this.order }).then(function (response) {
                 console.log(response.data);
                 if (response.data) {
                     if (response.data[0].msg == 'succ') {

@@ -66,7 +66,7 @@ export default {
     console.log(this.$route.params.id);
     this.$http
       .jsonp(
-      'http://localhost/data/dish_getbyid.php?id=' + this.$route.params.id, { jsonp: 'callback' }
+      'http://'+serverUrl+'/data/dish_getbyid.php?id=' + this.$route.params.id, { jsonp: 'callback' }
       )
       .then(function (response) {
         this.dish = response.data[0];

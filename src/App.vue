@@ -15,10 +15,19 @@
 import Router from 'vue-router'
 export default {
   name: 'app',
+   data(){
+    return {
+      urlDev:'localhost',
+      urlBuild:'kflvue.applinzi.com'
+    }
+  },
   methods:{
     jump:function(path){
       this.$router.push(path)
     }
+  },
+  created(){
+    window.serverUrl = this.urlBuild;
   }
 }
 </script>

@@ -54,7 +54,7 @@ export default {
     }
     ,
     created() {
-        this.$http.jsonp('http://localhost/data/order_getbyphone.php?phone=' + localStorage.getItem('phone'))
+        this.$http.jsonp('http://'+serverUrl+'/data/order_getbyphone.php?phone=' + localStorage.getItem('phone'))
             .then(function (response) {
                 this.orderList = response.data;
             })
