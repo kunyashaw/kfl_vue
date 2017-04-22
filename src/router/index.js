@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hello from '@/components/Hello'
+import Start from '@/components/Start'
 import Main from '@/components/Main'
 import Detail from '@/components/Detail'
 import Order from '@/components/Order'
@@ -9,10 +9,14 @@ import MyOrder from '@/components/MyOrder'
 Vue.use(Router)
 
 export default new Router({
-  routes: [{
-      path: '/',
-      name: 'Hello',
-      component: Hello
+  routes: [
+    {
+      path: '/start',
+      name: 'Start',
+      component: Start
+    },
+     {
+      path: '/',redirect: '/start'
     },
     {
       path: '/main',

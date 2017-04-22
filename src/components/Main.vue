@@ -1,7 +1,7 @@
 
 <template>
     <div class="container">
-    
+        <myHeader/>
         <div class="form-group has-feedback search">
             <input type="text"
                    class="form-control"
@@ -12,7 +12,8 @@
     
         <div>
             <div class="list-group">
-                <a v-on:click="jump(dish.did)" v-for="dish in dishList"
+                <a v-on:click="jump(dish.did)"
+                   v-for="dish in dishList"
                    class="list-group-item">
                     <div class="media">
                         <div class="media-left media-middle">
@@ -38,15 +39,20 @@
         </button>
     
         <p v-if="!hasMore">没有更多数据可以加载了</p>
-    
+        <myFooter/>
     </div>
 </template>
 
 <script>
 
-
+import kflHeader from '@/components/Header'
+import kflFooter from '@/components/Footer'
 export default {
     name: 'main',
+    components: {
+        'myHeader': kflHeader,
+        'myFooter': kflFooter
+    },
     data() {
         return {
             msg: 'Welcome to Your Vue.js App',
@@ -56,11 +62,11 @@ export default {
         }
     },
     methods: {
-        jump:function(did){
-             this.$parent.jump('/detail/'+did);
+        jump: function (did) {
+            this.$parent.jump('/detail/' + did);
         },
-        loadMore:function() {
-           
+        loadMore: function () {
+
             this.$http
                 .jsonp(
                 'http://localhost/data/dish_getbypage.php?start=' + this.dishList.length, { jsonp: 'callback' }

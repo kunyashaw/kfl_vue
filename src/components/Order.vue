@@ -1,5 +1,6 @@
 <template>
     <div class="container">
+        <myHeader/>
         <div class="alert alert-info">
             <form v-if="!result">
                 <div class="form-group">
@@ -54,16 +55,23 @@
     
             </form>
             <p v-if="result">{{result}}</p>
-            
+    
         </div>
+        <myFooter/>
     </div>
 </template>
 
 <script>
 
 
+import kflHeader from '@/components/Header'
+import kflFooter from '@/components/Footer'
 export default {
     name: 'order',
+    components: {
+        'myHeader': kflHeader,
+        'myFooter': kflFooter
+    },
     data() {
         return {
             order: {},
@@ -76,20 +84,18 @@ export default {
         },
         submitOrder: function () {
             console.log(this.order);
-            this.$http.jsonp('http://localhost/data/order_add.php',{params:this.order}).then(function(response){
+            this.$http.jsonp('http://localhost/data/order_add.php', { params: this.order }).then(function (response) {
                 console.log(response.data);
-                if(response.data)
-                {
-                    if(response.data[0].msg == 'succ')
-                    {
-                        this.result = "下单成功，订单编号为:"+response.data[0].oid;
-                        localStorage.setItem('phone',this.order.phone);
+                if (response.data) {
+                    if (response.data[0].msg == 'succ') {
+                        this.result = "下单成功，订单编号为:" + response.data[0].oid;
+                        localStorage.setItem('phone', this.order.phone);
                     }
-                    else{
+                    else {
                         this.result = "下单失败";
                     }
-                    console.log('result is '+this.result);
-                    
+                    console.log('result is ' + this.result);
+
                 }
             })
         }
@@ -97,7 +103,7 @@ export default {
     ,
     created() {
         console.log(this.$route.params.id);
-        this.order = {did:this.$route.params.id};
+        this.order = { did: this.$route.params.id };
 
     }
 }

@@ -1,10 +1,5 @@
 <template>
   <div id="app">
-    <router-link to="/">Go to Start</router-link>
-    <router-link to="/main">Go to Main</router-link>
-    <router-link to="/detail">Detail</router-link>
-    <router-link to="/myOrder">myOrder</router-link>
-    <button v-on:click="jump('/main')">btn</button> 
     <router-view></router-view>
   </div>
 </template>
@@ -29,12 +24,5 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
