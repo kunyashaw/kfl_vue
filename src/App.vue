@@ -1,6 +1,8 @@
 <template>
   <div id="app">
+  
     <router-view></router-view>
+  
   </div>
 </template>
 
@@ -15,19 +17,19 @@
 import Router from 'vue-router'
 export default {
   name: 'app',
-   data(){
+  data() {
     return {
-      urlDev:'localhost',
-      urlBuild:'kflvue.applinzi.com'
+      urlDev: 'localhost',
+      urlBuild: 'kflvue.applinzi.com'
     }
   },
-  methods:{
-    jump:function(path){
+  methods: {
+    jump: function (path) {
       this.$router.push(path)
     }
   },
-  created(){
-    window.serverUrl = this.urlBuild;
+  created() {
+    window.serverUrl = this.urlDev;
   }
 }
 </script>
