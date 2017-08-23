@@ -5,26 +5,18 @@
 ## Build Setup
 
 ``` bash
-# install dependencies
-npm install
+# 安装依赖
+npm install -g cnpm --registry=https://registry.npm.taobao.org
+cnpm install
 
-# serve with hot reload at localhost:8080
+# 配置服务器端
+工程的根目录下有个data的文件夹，解压缩下，将data目录放到xampp对应的htdocs根目录下，同时根据部署需要，修改连接数据库的方式
+
+# 启动开发服务器（默认会占据8080端口）
 npm run dev
 
-# build for production with minification
+# 构建生成环境下需要部署的代码，会自动在dist目录下生成需要的代码，可以将代码直接放在服务器的根目录下
 npm run build
 
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
 ```
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+外事问谷歌，内事问百度，多家搜索
